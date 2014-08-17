@@ -1,0 +1,25 @@
+<div class="track" ng-style="{'background-color':tinycolor(data.currentLocation.bgcolor).lighten().toHexString()}">
+<div ng-style="{'background-color':data.currentLocation.bgcolor}">
+<h2 ng-style="{'background-color':tinycolor(data.currentLocation.bgcolor).darken().toHexString()}">
+{{data.currentLocation.name}}
+<a class="edit-link" ng-href="#/location/{{data.currentLocation.$id}}" ><i class="fa fa-pencil"></i></a>
+</h2>
+
+<div class="center amount">
+<number-picker class="right" ng-model="amount" position="1"></number-picker>
+<number-picker ng-model="amount" position="0"></number-picker>
+<div class="separator">CHF&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+</div>
+<div class="center time">
+  <number-picker class="right" ng-model="hour" position="1" length="3"></number-picker>
+  <number-picker ng-model="hour" position="0" length="hourUnit()"></number-picker>
+  <div class="separator">:</div>
+  <number-picker ng-model="minutes" position="1" length="6"></number-picker>
+  <number-picker class="left" ng-model="minutes" position="0" length="1"></number-picker>
+</div>
+<div class="submit">
+  <button ng-click="addTrack()"><i class="fa fa-plus"></i> add</button>
+</div>
+</div>
+</div>

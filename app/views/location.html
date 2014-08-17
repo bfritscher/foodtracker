@@ -1,0 +1,40 @@
+<div class="location-edit" ng-style="{'background-color':tinycolor(data.currentLocation.bgcolor).lighten().toHexString()}">
+<div ng-style="{'background-color':data.currentLocation.bgcolor}">
+  <label>Name
+    <input type="text"
+      ng-model="data.currentLocation.name"/>
+  </label>
+  <label>Address
+    <input type="text"
+      ng-model="data.currentLocation.address"/>
+  </label>
+  <label>ZIP
+    <input type="text"
+      ng-model="data.currentLocation.zip"/>
+  </label>
+  <label>City
+    <input type="text"
+      ng-model="data.currentLocation.city"/>
+  </label>
+  <label>Kind
+    <input type="text"
+      ng-model="data.currentLocation.kind"/>
+  </label>
+  <label>Phone
+    <input type="text"
+      ng-model="data.currentLocation.phone"/>
+  </label>
+  <label>URL
+    <input type="text"
+      ng-model="data.currentLocation.url"/>
+  </label>
+  <label>Color
+    <input type="text"
+      ng-model="data.currentLocation.bgcolor"/>
+  </label>
+  <a class="hint" href="http://labs.tineye.com/color/">http://labs.tineye.com/color/</a>
+  <div class="submit">
+    <button ng-click="data.updateLocation()"><i class="fa fa-floppy-o"></i>&nbsp;&nbsp;Update</button>
+  </div>
+</div>
+</div>

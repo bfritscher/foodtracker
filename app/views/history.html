@@ -1,0 +1,32 @@
+<div class="history">
+<h2>History <small class="pull-right" ng-click="data.logout()">logout</small></h2>
+<table>
+  <thead>
+    <tr>
+      <th>Location</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-show="$first || toDate($$prevSibling.track.when).getDay() != toDate(track.when).getDay()" ng-repeat-start="track in data.tracks | orderBy: '-when'">
+      <td colspan="2" class="info">{{track.when | date : 'dd/MM/yyyy'}}</td>
+    </tr>
+    <tr
+      ng-init="date = toDate(track.when);time = toDate(track.when)"
+      ng-style="{'background-color':data.locations.$getRecord(track.location_id).bgcolor}">
+      <td colspan="2">{{data.locations.$getRecord(track.location_id).name}}</td>
+    </tr>
+    <tr class="tr-end" ng-repeat-end
+      ng-style="{'background-color':data.locations.$getRecord(track.location_id).bgcolor}">
+      <td>
+        <label><input type="date" ng-model="date" ng-change="updateDate(track, date, time)"></label>
+        <label><input type="time" ng-model="time" ng-change="updateDate(track, date, time)"></label>
+      </td>
+      <td class="td-amount">
+        <input class="right" type="number" min="0" ng-model="track.amount" ng-change="data.tracks.$save(track)">
+        <i class="fa fa-trash-o delete-track" ng-click="data.removeTrack(track)"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
