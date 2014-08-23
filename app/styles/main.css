@@ -202,6 +202,10 @@ table .info{
   line-height: 100px;
   font-weight: bold;
   color: #fff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  vertical-align: top;
+  white-space: nowrap;  
 }
 
 .add-location{
