@@ -9,11 +9,11 @@
  */
 angular.module('foodtrackerApp')
   .controller('TrackCtrl', function ($scope, Data, $routeParams) {
-    $scope.amount = 12;
     var date = new Date();
     $scope.hour = date.getHours();
     $scope.minutes = Math.floor(date.getMinutes()/10) * 10;
     Data.setCurrentLocation($routeParams.id);
+    $scope.amount =  Data.guessAmount($routeParams.id) || 12;
     
     $scope.$watch('hour', function(){
       if($scope.hour > 24){

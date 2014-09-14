@@ -25,11 +25,34 @@ angular.module('foodtrackerApp')
     
     
     function loadUserData(user){
-      var sync = $firebase(new Firebase(firebaseURL + '/users/' + user.uid + '/profile'));
-      sync.$asObject().$bindTo($rootScope, 'user');
+      var sync = $firebase(new Firebase(firebaseURL + '/users/' + user.uid + '/config'));
+      sync.$asObject().$bindTo($rootScope, 'user').then(
+        function(){
+          self.tracks.$loaded().then(updateHiddenLocations);
+        }
+      );
       sync = $firebase(new Firebase(firebaseURL + '/users/' + user.uid + '/tracks'));
       self.tracks = sync.$asArray();
       self.loading = false;
+      
+    }
+    
+    function updateHiddenLocations(){
+      /*jshint camelcase: false */
+      var locations = {};
+      for(var i=0; i < self.tracks.length; i++){
+        var id = self.tracks[i].location_id;
+        if(!locations.hasOwnProperty(id)){
+          locations[id] = 1;
+        }else{
+          locations[id]++;
+        }
+      }
+      for(var l=0; l < self.locations.length; l++){
+        var location = self.locations[l];
+        location.hidden = locations.hasOwnProperty(location.$id) && locations[location.$id] < $rootScope.user.hideLimit;
+        self.locations.$save(location);
+      }
     }
     
     var locationsSync = $firebase(new Firebase(firebaseURL + '/locations'));
@@ -89,6 +112,32 @@ angular.module('foodtrackerApp')
       if(confirm === 'OK'){
         this.tracks.$remove(track);
       }
+    };
+    
+    this.guessAmount = function(locationID){
+      /*jshint camelcase: false */
+      //IDEA: better guess based on time dimension?
+      if(this.tracks.length === 0){
+        return null;
+      }
+      var modeMap = {};
+      var maxEl = 0, maxCount = 0;
+      for(var i = 0; i < this.tracks.length; i++) {
+        var track = this.tracks[i];
+        if(track.location_id === locationID){
+          var el = track.amount;
+          if(!modeMap.hasOwnProperty(el)) {
+            modeMap[el] = 1;
+          } else {
+            modeMap[el]++;
+          }
+          if(modeMap[el] > maxCount){
+            maxEl = el;
+            maxCount = modeMap[el];
+          }
+        }
+      }
+      return maxEl;
     };
     
   });

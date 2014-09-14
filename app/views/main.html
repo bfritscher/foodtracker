@@ -1,9 +1,15 @@
 <a class="location" ng-href="#/track/{{location.$id}}"
   ng-style="{'background-color':location.bgcolor}"
-  ng-repeat="location in data.locations">
+  ng-repeat="location in data.locations | filter: {hidden:'!true'}">
   {{location.name}}
 </a>
 
 <div class="add-location">
   <i class="fa fa-plus-square fa-4x" ng-click="data.addLocation()"></i>
 </div>
+
+<a class="location" ng-href="#/track/{{location.$id}}"
+  ng-style="{'background-color':location.bgcolor}"
+  ng-repeat="location in data.locations | filter: {hidden:true}">
+  {{location.name}}
+</a>
