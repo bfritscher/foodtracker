@@ -45,6 +45,71 @@ td{
   padding: 5px;
 }
 
+#data-table{
+    border-collapse: collapse;
+    font-size: 80%;
+    clear: both;
+}
+
+#data-table tr {
+    border-bottom: 1px solid #E9E9E9;
+}
+
+#data-table td{
+  padding: 0;
+}
+
+
+#data-table-content{
+	float: none;
+	height: 300px;
+	overflow: auto;
+	width: 400px;
+}
+
+#data-table .header > span{
+	display: table-cell;
+	font-weight: bold;
+	
+}
+
+.dc-table-column._0{
+	width: 100px;
+}
+.dc-table-column._1{
+	width: 180px;
+}
+.dc-table-column._2{
+	width: 100px;
+	text-align: right;
+}
+
+.dc-table-group{
+	background-color: #d9edf7;
+}
+
+.dc-table-row{
+
+}
+
+#days-overview .axis.y{
+	display: none;
+}
+
+.dc-chart > div{
+	margin-top: 8px;
+}
+
+.dc-chart g.row text, .dc-chart .pie-slice {
+  fill: #333;
+}
+
+h2 a{
+  text-decoration: none;
+  color: #000;
+  font-size: 75%;
+}
+
 .right{
   text-align:right;
 }

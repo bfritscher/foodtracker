@@ -28,6 +28,10 @@ angular
         templateUrl: 'views/history.html',
         controller: 'HistoryCtrl'
       })
+      .when('/stats', {
+        templateUrl: 'views/stats.html',
+        controller: 'StatsCtrl'
+      })
       .when('/track/:id', {
         templateUrl: 'views/track.html',
         controller: 'TrackCtrl'

@@ -1,0 +1,78 @@
+<div class="main">
+	<div id="list-widget">
+		<span class="filter-count"></span> selected out of <span class="total-count"></span> records
+	</div>
+
+	<div id="days">
+		<div>
+			<span class="title">Days</span>
+			<a class="reset" href="javacript:return false;" ng-click="daysChart.filterAll();daysOverview.ChartfilterAll();dc.redrawAll();" style="display: none;">reset</a>
+			<span class="reset" style="display: none;">Current filter: <span class="filter"></span></span>
+		</div>
+	</div>
+	<div id="days-overview">
+	</div>
+</div>
+<div id="category">
+  <div>
+    <span class="title">Lieu</span>
+    <a class="reset" href="javacript:return false" ng-click="categoryChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+    <span class="reset" style="display: none;"></span>
+  </div>
+</div>
+	
+<div id="type">
+  <div>
+    <span class="title">Type</span>
+    <a class="reset" href="javacript:return false" ng-click="typeChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+    <span class="reset" style="display: none;"></span>
+  </div>
+</div>
+	
+<div id="day">
+  <div>
+    <span class="title">Day of Week</span>
+    <a class="reset" href="javacript:return false" ng-click="dayChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+    <span class="reset" style="display: none;"></span>
+  </div>
+</div>
+		
+<div id="duration">
+  <div>
+    <span class="title">Montant</span>
+    <a class="reset" href="javacript:return false" ng-lick="durationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+    <span class="reset" style="display: none;">Current filter: <span class="filter"></span> min</span>
+  </div>
+</div>
+
+<div id="hours">
+  <div>
+    <span class="title">Time of Day</span>
+    <a class="reset" href="javacript:return false" ng-click="hoursChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+    <span class="reset" style="display: none;">Current filter: <span class="filter"></span></span>
+  </div>
+</div>
+	
+<div id="lieu">
+  <div>
+    <span class="title">Lieu Grouped</span>
+    <a class="reset" href="javacript:return false" ng-click="lieuChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+    <span class="reset" style="display: none;">Current filter: <span class="filter"></span></span>
+  </div>
+</div>
+	
+<div id="data-table">
+    <div class="header">
+        <span class="dc-table-column _0">Date</span>
+        <span class="dc-table-column _1">Lieu</span>
+        <span class="dc-table-column _2">Montant</span>
+    </div>
+	<div id="data-table-content">
+	
+	</div>
+	<div class="header">
+        <span class="dc-table-column _0"></span>
+        <span class="dc-table-column _1"></span>
+        <span  class="dc-table-column _2">Total <span id="total"></span></span>
+    </div>
+</div>

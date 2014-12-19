@@ -21,6 +21,9 @@
   "globals": {
     "angular": false,
     "Firebase": false,
-    "tinycolor": false
+    "tinycolor": false,
+    "dc": false,
+    "d3": false,
+    "crossfilter": false
   }
 }

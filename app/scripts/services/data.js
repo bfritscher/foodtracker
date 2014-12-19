@@ -33,6 +33,7 @@ angular.module('foodtrackerApp')
       );
       sync = $firebase(new Firebase(firebaseURL + '/users/' + user.uid + '/tracks'));
       self.tracks = sync.$asArray();
+      console.log('loaded');
       self.loading = false;
       
     }
